@@ -146,7 +146,7 @@ module.exports = async (Atlas, m, commands, chatUpdate) => {
 
     
     if (isCmd || icmd) {
-      if (botWorkMode == "private") {
+      if (botWorkMode == "public") {
         if (!isCreator && !modcheck) {
           return console.log(`\nCommand Rejected ! Bot is in Private mode !\n`);
         }
@@ -171,7 +171,7 @@ module.exports = async (Atlas, m, commands, chatUpdate) => {
         return Atlas.sendMessage(
           m.from,
           {
-            text: `You are banned from using commands !`,
+            text: `You are banned from using commands fuck off!`,
           },
           { quoted: m }
         );
