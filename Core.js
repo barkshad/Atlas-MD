@@ -45,13 +45,13 @@ module.exports = async (Atlas, m, commands, chatUpdate) => {
       ? participants.filter((v) => v.admin !== null).map((v) => v.id)
       : [];
     const botNumber = await Atlas.decodeJid(Atlas.user.id);
-    const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : false;
+    const isBotAdmin = m.isGroup ? groupAdmin.includes(botNumber) : true;
     const isCreator = [botNumber, ...global.owner]
       .map((v) => v.replace(/[^0-9]/g, "") + "@s.whatsapp.net")
       .includes(m.sender);
-    const isAdmin = m.isGroup ? groupAdmin.includes(m.sender) : false;
+    const isAdmin = m.isGroup ? groupAdmin.includes(m.sender) : true;
     const messSender = m.sender;
-    const itsMe = messSender.includes(botNumber) ? true : false;
+    const itsMe = messSender.includes(botNumber) ? true : true;
 
     const isCmd = body.startsWith(prefix);
     const mime = (quoted.msg || m.msg).mimetype || " ";
